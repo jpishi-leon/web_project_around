@@ -1,12 +1,10 @@
-.grid {
-  display: grid;
+.elements {
+  display: flex;
+  flex-wrap: wrap;
   margin-left: 200px;
   margin-top: 50px;
-  width: 880px;
+  max-width: 880px;
   padding-bottom: 67px;
-  grid-template-areas:
-    "1 2 3"
-    "4 5 6";
   gap: 20px 17px;
   font-family: Inter;
   font-weight: 900;
@@ -15,16 +13,19 @@
   letter-spacing: 0%;
 }
 
-.grid__images {
+.elements__element {
   background-color: white;
   width: 282px;
   height: 361px;
   top: 329px;
   left: 200px;
   border-radius: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.grid__info {
+.elements__info {
   display: flex;
   flex-direction: row;
   align-self: center;
@@ -35,11 +36,11 @@
   margin-left: 17px;
 }
 
-.grid__info-name {
+.elements__info-name {
   margin: 0;
 }
 
-.grid__info-love {
+.elements__info-love {
   width: 21px;
   height: 19px;
 }
