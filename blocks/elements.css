@@ -1,9 +1,10 @@
 .elements {
   display: flex;
-  flex-wrap: wrap;
-  margin-left: 200px;
   margin-top: 50px;
   max-width: 880px;
+  flex-wrap: wrap;
+  margin-left: 15%;
+  margin-right: 15%;
   padding-bottom: 67px;
   gap: 20px 17px;
   font-family: Inter;
@@ -11,6 +12,7 @@
   font-size: 24px;
   line-height: 100%;
   letter-spacing: 0%;
+  justify-content: center;
 }
 
 .elements__element {

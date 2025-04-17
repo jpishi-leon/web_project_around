@@ -16,6 +16,7 @@
     <title>Around the USA</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./pages/index.css" />
+    <script src="index.js"></script>
   </head>
   <body>
     <div class="page">
@@ -35,17 +36,19 @@
             alt="Jaques Costeau"
           />
           <div class="profile__details">
-            <span id="texto-antes" class="profile__details-name"
-              >Jaques Costeau
-            </span>
-            <input
-              type="image"
-              src="./images/Edit-button.png"
-              alt="My Button"
-              name="submit"
-              value="Submit"
-              class="profile__link"
-            />
+            <div class="profile__details-full">
+              <label id="texto-antes" class="profile__details-name"
+                >Jaques Costeau
+              </label>
+              <input
+                type="image"
+                src="./images/Edit-button.png"
+                alt="My Button"
+                name="submit"
+                value="Submit"
+                class="profile__link"
+              />
+            </div>
             <h3 class="profile__detailes-profession">Explorador</h3>
           </div>
           <img
@@ -98,7 +101,17 @@
             </div>
           </div>
         </section>
+        <form class="popup popup_form popup_opened">
+          <button class="popup__close-button">
+            <img class="popup__close-image" src="./images/Close Icon.png" />
+          </button>
+          <label for="fname">First name:</label><br />
+          <input type="text" id="fname" name="fname" /><br />
+          <label for="lname">Last name:</label><br />
+          <input type="text" id="lname" name="lname" />
+        </form>
       </main>
+
       <footer class="footer">
         <p class="footer__copyright">© 2025. Jun Andrade Sashida</p>
       </footer>
