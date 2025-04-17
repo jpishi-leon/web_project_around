@@ -1,4 +1,4 @@
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 801px) {
   .header {
     color: white;
     display: flex;
@@ -25,7 +25,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 800px) {
   .header {
     width: 100%;
     padding-top: 28px;
@@ -36,7 +36,7 @@
     width: 126px;
     height: 24px;
     top: 28px;
-    left: 27px;
+    padding-left: 27px;
   }
 
   .header__line {
@@ -44,5 +44,6 @@
     width: 100%;
     opacity: 0.7;
     border: 1px solid #545454;
+    margin-right: 0;
   }
 }
