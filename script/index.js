@@ -11,7 +11,7 @@ const SaveProfilePopupBttn = document.queryselector("#submit");
 OpenProfilePopupBttn.addEventListener("click", () => {
   InputName.value = NameHeader.textContent;
   InputAbout.value = AboutHeader.textContent;
-  ProfileFormPopup.classList.add(".popup__show");
+  ProfileFormPopup.classList.add("popup__show");
   SaveProfilePopupBttn.classList.add("pupop_form-btn-submit-disable");
 });
 

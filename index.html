@@ -13,10 +13,10 @@
       name="keywords"
       content="USA, AROUND, tripleten, Jun Andrade Sashida, Proyecto 7, "
     />
-    <title>Around the USA</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <script src="index.js"></script>
+    <link rel="stylesheet" href="./vendor/fonts.cs" />
+    <title>Around the USA</title>
   </head>
   <body>
     <div class="page">
@@ -28,7 +28,7 @@
         />
         <hr class="header__line" />
       </header>
-      <main class="content">
+      <main class="main">
         <section class="profile">
           <img
             class="profile__picture"
@@ -40,15 +40,17 @@
               <label id="texto-antes" class="profile__details-name"
                 >Jaques Costeau
               </label>
-              <input
-                type="image"
-                src="./images/Edit-button.png"
-                alt="My Button"
-                name="submit"
-                value="Submit"
-                id="EditButton"
-                class="profile__link"
-              />
+              <button
+                type="submit"
+                class="profile__lapiz profile__lapiz-action-add"
+                id="profile__lapiz-action-add"
+              >
+                <img
+                  class="lapiz"
+                  src="./images/Edit-button.png"
+                  alt="editar"
+                />
+              </button>
             </div>
             <h3 class="profile__detailes-profession">Explorador</h3>
           </div>
@@ -125,12 +127,11 @@
                 placeholder="Acerca de mí"
                 class="popup__form-input popup__form-input_about"
               />
-              <input
+              <button
                 type="submit"
                 id="submit"
-                name="submit"
                 class="popup__form-input popup__form-input_submit"
-              />
+              ></button>
             </form>
           </div>
         </section>
@@ -140,5 +141,6 @@
         <p class="footer__copyright">© 2025. Jun Andrade Sashida</p>
       </footer>
     </div>
+    <script src="./script/index.js"></script>
   </body>
 </html>
