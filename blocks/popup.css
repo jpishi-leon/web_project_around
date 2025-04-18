@@ -43,6 +43,8 @@
 }
 
 .pupop_form-btn-submit-disable {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .popup__close-image {
@@ -62,6 +64,8 @@
 }
 
 .popup__form-input {
+  border: none;
+  border-bottom: 1px solid #000000;
 }
 
 .popup__form-input_submit {
