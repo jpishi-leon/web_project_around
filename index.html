@@ -46,6 +46,7 @@
                 alt="My Button"
                 name="submit"
                 value="Submit"
+                id="EditButton"
                 class="profile__link"
               />
             </div>
@@ -101,15 +102,36 @@
             </div>
           </div>
         </section>
-        <div class="popup popup_opened">
-          <button class="popup__close-button">
-            <img class="popup__close-image" src="./images/Close Icon.png" />
-          </button>
-          <form class="popup__form">
-            <input type="text" id="fname" name="fname" /><br />
-            <input type="text" id="lname" name="lname" />
-          </form>
-        </div>
+        <section class="popup">
+          <div class="popup__container">
+            <h3 class="popup__editar">Editar perfil</h3>
+            <button class="popup__close-button">
+              <img class="popup__close-image" src="./images/Close Icon.png" />
+            </button>
+            <form class="popup__form">
+              <input
+                type="text"
+                id="InputName"
+                name="name"
+                placeholder="Nombre"
+                class="popup__form-input popup__form-input_name"
+              /><br />
+              <input
+                type="text"
+                id="InputAbout"
+                name="about"
+                placeholder="Acerca de mí"
+                class="popup__form-input popup__form-input_about"
+              />
+              <input
+                type="submit"
+                id="submit"
+                name="submit"
+                class="popup__form-input popup__form-input_submit"
+              />
+            </form>
+          </div>
+        </section>
       </main>
 
       <footer class="footer">

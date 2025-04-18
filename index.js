@@ -1,60 +1,42 @@
-const form = document.querySelector(".form");
-const inputWord = form.querySelector(".form__input");
-const elements = document.querySelector(".elements");
-const popupImage = document.querySelector(".popup_image");
-const popupImageClose = popupImage.querySelector(".popup__close-button");
-const words = [
-  {
-    name: "Juan",
-    link: "https://randomuser.me/api/portraits/men/95.jpg",
-  },
-  {
-    name: "Martin",
-    link: "https://randomuser.me/api/portraits/men/92.jpg",
-  },
-  {
-    name: "Pedro",
-    link: "https://randomuser.me/api/portraits/men/17.jpg",
-  },
-];
+const NameHeader = document.queryselector ('.profile__details-name');
+const AboutHeader = document.queryselector ('.profile__detailes-profession');
+const InputName = document.queryselector ('#InputName');
+const InputAbout = document.queryselector ('#InputAbout');
+const Form = document.queryselector ('.popup__form');
+const OpenProfilePopupBttn = document.queryselector('#EditButton');
+const ProfileFormPopup = document.queryselector('.popup');
+const CloseProfilePopupBttn = document.queryselector ('.popup__close-button');
+const SaveProfilePopupBttn = document.queryselector('#submit')
 
-words.forEach((item) => {
-  const card = createElement(item.name, item.link);
-  elements.append(card);
-});
-
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  const card = createElement(inputWord.value, inputLink.value);
-
-  elements.prepend(card);
-  form.reset();
-});
-
-popupImageClose.addEventListener("click", function () {
-  popupImage.classList.remove("popup_opened");
-});
-
-function createElement(name, link) {
-  const cardNode = document
-    .querySelector(".template")
-    .content.querySelector(".card")
-    .cloneNode(true);
-  cardNode.querySelector(".card__image").src = link;
-  cardNode.querySelector(".card__image").alt = name;
-  cardNode.querySelector(".card__text").textContent = name;
-
-  const likeButton = cardNode.querySelector(".card__like");
-
-  likeButton.addEventListener("click", function () {
-    likeButton.classList.toggle("card__like_active");
+OpenProfilePopupBttn.addEventListener("click", () => {
+  InputName.value = NameHeader.textContent;
+  InputAbout.value = AboutHeader.textContent;
+  ProfileFormPopup.classList.add("popup__show") ;
+  SaveProfilePopupBttn.classList.add ("pupop_form-btn-submit-disable");
   });
 
-  const trashButton = cardNode.querySelector(".card__trash");
+Form.addEventListener('submit', function(event){
+  evt.preventDefault();
+  nameHeader.textContent = inputName.value; // aqui se cambia el nombre del perfil del titulo al
+  aboutHeader.textContent = inputAbout.value;
+  ProfileFormPopup.classList.remove("popup_show"); //aqui se retira la clase que se muestra el formulario
+};
+  
+// Utiliza el método querySelector()
 
-  trashButton.addEventListener("click", function () {
-    cardNode.remove();
-  });
+// Lo siguiente es el manipulador (handler) de entrega de formularios, aunque
+// no se enviará en ningún sitio todavía
 
-  return cardNode;
+// Observa que el nombre de la función comienza con un verbo
+// y describe exactamente lo que hace la función
+function handleProfileFormSubmit(evt) {
+    evt.preventDefault();
+    nameHeader.textContent = inputName.value; // aqui se cambia el nombre del perfil del titulo al
+    aboutHeader.textContent = inputAbout.value;
+    ProfileFormPopup.classList.remove("popup_show"); //aqui se retira la clase que se muestra el formulario
 }
+
+
+
+// Conecta el manipulador (handler) al formulario:
+// se observará el evento de entrega
