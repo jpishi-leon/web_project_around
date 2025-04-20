@@ -87,7 +87,7 @@
   direction: ltr; /* ✅ Esto asegura la dirección izquierda a derecha */
 }
 
-.popup__form_input_submit {
+.popup__form-input__submit {
   margin-top: 48px;
   background-color: black;
   color: white;
@@ -107,7 +107,7 @@
   max-width: 300px;
 }
 
-.popup__form-input:valid + .popup__form-input_submit {
+.popup__form-input:valid + .popup__form-input__submit {
   background-color: black;
   color: #fff;
   pointer-events: initial;
