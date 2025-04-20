@@ -63,7 +63,7 @@
   right: -32.5px;
 }
 
-.popup__form-btn-submit-disable {
+.popup__form-submit-disable {
   opacity: 0.6;
   cursor: not-allowed;
 }
@@ -87,7 +87,7 @@
   direction: ltr; /* ✅ Esto asegura la dirección izquierda a derecha */
 }
 
-.popup__form-input__submit {
+.popup__form-submit {
   margin-top: 48px;
   background-color: black;
   color: white;
@@ -107,7 +107,7 @@
   max-width: 300px;
 }
 
-.popup__form-input:valid + .popup__form-input__submit {
+.popup__form-input:valid + .popup__form-submit {
   background-color: black;
   color: #fff;
   pointer-events: initial;

@@ -5,9 +5,7 @@ const profileFormPopup = document.querySelector(".popup");
 const closeProfilePopupBttn = document.querySelector(
   ".popup__container-bttn-close"
 );
-const saveProfilePopupBttn = document.querySelector(
-  ".popup__form-input_submit"
-);
+const saveProfilePopupBttn = document.querySelector(".popup__form-submit");
 const inputProfileName = document.querySelector("#InputName");
 const inputProfileAbout = document.querySelector("#InputAbout");
 const nameProfileHeader = document.querySelector(".profile__details-name");
@@ -21,10 +19,10 @@ function validateInputs() {
   const isAboutFilled = inputProfileAbout.value.trim() !== "";
 
   if (isNameFilled && isAboutFilled) {
-    saveProfilePopupBttn.classList.remove("popup__form-btn-submit-disable");
+    saveProfilePopupBttn.classList.remove("popup__form-submit-disable");
     saveProfilePopupBttn.disabled = false;
   } else {
-    saveProfilePopupBttn.classList.add("popup__form-btn-submit-disable");
+    saveProfilePopupBttn.classList.add("popup__form-submit-disable");
     saveProfilePopupBttn.disabled = true;
   }
 }
