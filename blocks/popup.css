@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: opacity 0.3s ease;
 }
 
 .popup__show {
@@ -25,7 +26,6 @@
   position: relative;
   top: 0;
   right: 0;
-  /*margin: 150px auto;*/
   padding: 34px 36px;
   border-radius: 25px;
 }
@@ -80,6 +80,11 @@
 .popup__form-input {
   border: none;
   border-bottom: 1px solid #000000;
+  padding: 10px 0;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  text-align: left; /* ✅ Esto alinea el texto a la izquierda */
+  direction: ltr; /* ✅ Esto asegura la dirección izquierda a derecha */
 }
 
 .popup__form-input_submit {
@@ -102,7 +107,7 @@
   max-width: 300px;
 }
 
-.pupop__form-input:valid + .pupop__form-input_submit {
+.popup__form-input:valid + .popup__form-input_submit {
   background-color: black;
   color: #fff;
   pointer-events: initial;
