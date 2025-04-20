@@ -1,3 +1,11 @@
+.profile__add-button {
+  background-color: transparent;
+  width: 282px;
+  height: 50px;
+  border-style: none;
+  background-color: transparent;
+}
+
 @media screen and (min-width: 801px) {
   .profile {
     width: 68.75%;
@@ -31,7 +39,7 @@
     flex-direction: row;
     margin-left: 30px;
     margin-top: 22px;
-    width: 47.15%;
+    width: 415px;
   }
 
   .profile__details-full {
@@ -41,17 +49,17 @@
   }
 
   .profile__details-name {
-    max-width: 373px;
+    width: 320px;
     font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 42px;
     line-height: 48px;
-    margin: auto auto 16px;
+    margin: auto auto 10px;
   }
 
-  .profile__detailes-profession {
-    margin: 0;
+  .profile__details-profession {
+    margin: 0px;
     font-family: Inter;
     font-weight: 400;
     font-size: 18px;
@@ -63,13 +71,18 @@
     border-style: ridge;
     background-color: transparent;
     margin-top: 16px;
-    margin-left: 18px;
-    margin-right: 40px;
+    margin-right: 20px;
   }
 
   .profile__lapiz-action-add {
     width: 24px;
     height: 24px;
+  }
+
+  .profile__add-button {
+    width: 150px;
+    height: 50px;
+    margin-top: 22px;
   }
 }
 
@@ -108,7 +121,7 @@
     width: 282px;
     flex-direction: row;
     flex-wrap: wrap;
-    align-self: center;
+    justify-content: center;
   }
 
   .profile__details-full {
@@ -130,7 +143,7 @@
     margin: 0;
   }
 
-  .profile__detailes-profession {
+  .profile__details-profession {
     margin: 0;
     font-family: Inter;
     font-weight: 400;
@@ -144,7 +157,7 @@
     border-style: ridge;
     background-color: transparent;
     margin-top: 16px;
-    margin-left: 18px;
+    margin-left: 10px;
     width: 24px;
     height: 24px;
   }
@@ -165,9 +178,16 @@
   }
 
   .profile__add-button {
+    background-color: transparent;
     width: 282px;
     height: 50px;
     margin-top: 37px;
+  }
+
+  .profile__add-button-image {
+    width: 100%;
+    height: 100%;
+    margin: 0;
     align-self: center;
   }
 }
