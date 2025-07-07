@@ -182,6 +182,8 @@
     width: 282px;
     height: 50px;
     margin-top: 37px;
+    /* pointer-events: none; <-- ELIMINA ESTA LÍNEA */
+    pointer-events: auto; /* o simplemente elimínala por completo */
   }
 
   .profile__add-button-image {

@@ -53,15 +53,21 @@
                 />
               </button>
             </div>
-            <button class="profile__add-button">
+            <button
+              type="button"
+              class="profile__add-button"
+              id="profile__add-button"
+            >
               <img
                 class="profile__add-button-image"
-                src="./images/Add Button.png"
+                src="./images/Add Button.svg"
+                alt="Add"
               />
             </button>
           </div>
         </section>
         <section class="elements">
+          <!--
           <div class="elements__element">
             <img class="elements__image" src="./images/yosemite.png" />
             <div class="elements__info">
@@ -69,6 +75,7 @@
               <img class="elements__info-love" src="./images/Love.svg" />
             </div>
           </div>
+
           <div class="elements__element">
             <img class="elements__image" src="./images/Louise.png" />
             <div class="elements__info">
@@ -104,8 +111,9 @@
               <img class="elements__info-love" src="./images/Love.svg" />
             </div>
           </div>
+           -->
         </section>
-        <section class="popup">
+        <section class="popup popup-edit">
           <div class="popup__container">
             <h3 class="popup__editar">Editar perfil</h3>
             <button class="popup__container-bttn-close">
@@ -144,11 +152,65 @@
             </form>
           </div>
         </section>
+        <section class="popup popup-new">
+          <div class="popup__container">
+            <button class="popup__container-bttn-close" type="button">
+              <img
+                class="popup__container-bttn-close-img"
+                src="./images/Close Icon.png"
+              />
+            </button>
+            <h2 class="popup__title">Nuevo lugar</h2>
+            <form class="popup__form popup__form-new" name="newCardForm">
+              <input
+                id="card-title"
+                type="text"
+                placeholder="Título"
+                required
+              />
+              <input
+                id="card-link"
+                type="url"
+                placeholder="Enlace a la imagen"
+                required
+              />
+              <button type="submit" class="popup__form-submit">Crear</button>
+            </form>
+          </div>
+        </section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">© 2025. Jun Andrade Sashida</p>
       </footer>
     </div>
+    <template class="template-card">
+      <div class="elements__element">
+        <div class="elements__image-wrapper">
+          <img class="elements__image" src="" />
+          <img
+            class="elements__trash"
+            src="./images/Trash.svg"
+            alt="Eliminar"
+          />
+        </div>
+        <div class="elements__info">
+          <p class="elements__info-name"></p>
+          <img class="elements__info-love" src="./images/Love.svg" />
+        </div>
+      </div>
+    </template>
     <script src="./scripts/index.js"></script>
+    <section class="popup popup-image">
+      <div class="popup__container popup__container-image">
+        <button class="popup__container-bttn-close" type="button">
+          <img
+            class="popup__container-bttn-close-img"
+            src="./images/Close Icon.png"
+            alt="Cerrar"
+          />
+        </button>
+        <img class="popup__image-content" src="" alt="Vista ampliada" />
+      </div>
+    </section>
   </body>
 </html>
