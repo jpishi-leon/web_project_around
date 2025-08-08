@@ -108,6 +108,10 @@
   direction: ltr; /* ✅ Esto asegura la dirección izquierda a derecha */
 }
 
+.popup__form-input_type_error {
+  border-bottom-color: red;
+}
+
 .popup__form-submit {
   margin-top: 48px;
   background-color: black;
@@ -221,4 +225,8 @@
 
 .profile__add-button:hover .profile__add-button-image {
   opacity: 0;
+}
+
+.popup__form-input:invalid {
+  border-bottom: 1px solid red;
 }

@@ -76,9 +76,11 @@
                 src="./images/Close Icon.png"
               />
             </button>
-            <form class="popup__form">
+            <form class="popup__form" id="contactForm">
               <fieldset class="popup__form-fieldset">
                 <input
+                  minlength="2"
+                  maxlength="40"
                   type="text"
                   id="InputName"
                   name="name"
@@ -86,20 +88,25 @@
                   placeholder="Nombre"
                   class="popup__form-input popup__form-input_name"
                 />
+                <span
+                  class="form__input-error name-input-error"
+                  id="InputName-error"
+                ></span>
                 <input
                   type="text"
+                  minlength="2"
+                  maxlength="200"
                   id="InputAbout"
                   required
                   name="about"
                   placeholder="Acerca de mí"
                   class="popup__form-input popup__form-input_about"
                 />
-                <button
-                  type="submit"
-                  id="submit"
-                  class="popup__form-submit"
-                  disabled
-                >
+                <span
+                  class="form__input-error about-input-error"
+                  id="InputAbout-error"
+                ></span>
+                <button type="submit" id="submit" class="popup__form-submit">
                   Guardar
                 </button>
               </fieldset>
@@ -117,18 +124,37 @@
             <h2 class="popup__title">Nuevo lugar</h2>
             <form class="popup__form popup__form-new" name="newCardForm">
               <input
-                id="card-title"
+                id="inputTitle"
                 type="text"
                 placeholder="Título"
                 required
+                minlength="2"
+                maxlength="30"
+                class="popup__form-input popup__form-input_title"
               />
+              <span
+                class="form__input-error place-input-error"
+                id="inputTitle-error"
+              ></span>
               <input
-                id="card-link"
+                id="inputLink"
                 type="url"
                 placeholder="Enlace a la imagen"
                 required
+                class="popup__form-input popup__form-input_link"
               />
-              <button type="submit" class="popup__form-submit">Crear</button>
+              <span
+                class="form__input-error place-input-error"
+                id="inputLink-error"
+              ></span>
+              <button
+                type="submit"
+                id="savePlace"
+                class="popup__form-submit"
+                disabled
+              >
+                Crear
+              </button>
             </form>
           </div>
         </section>

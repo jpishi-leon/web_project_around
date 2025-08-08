@@ -5,7 +5,7 @@ const profileFormPopup = document.querySelector(".popup-edit");
 const closeProfilePopupBttn = profileFormPopup.querySelector(
   ".popup__container-bttn-close"
 );
-const saveProfilePopupBttn = document.querySelector(".popup__form-submit");
+const saveProfilePopupBttn = document.querySelector("#submit");
 const inputProfileName = document.querySelector("#InputName");
 const inputProfileAbout = document.querySelector("#InputAbout");
 const nameProfileHeader = document.querySelector(".profile__details-name");
@@ -101,8 +101,13 @@ function createCard(name, link) {
 }
 
 function validateInputs() {
-  const isNameFilled = inputProfileName.value.trim() !== "";
-  const isAboutFilled = inputProfileAbout.value.trim() !== "";
+  const isNameFilled =
+    inputProfileName.value.trim().length >= 2 &&
+    inputProfileName.value.trim().length <= 40;
+
+  const isAboutFilled =
+    inputProfileAbout.value.trim().length >= 2 &&
+    inputProfileAbout.value.trim().length <= 200;
 
   if (isNameFilled && isAboutFilled) {
     saveProfilePopupBttn.classList.remove("popup__form-submit-disable");
@@ -148,8 +153,31 @@ const closeNewCardPopupBttn = newCardPopup.querySelector(
 );
 const newCardForm = newCardPopup.querySelector(".popup__form-new");
 
-const inputCardTitle = document.querySelector("#card-title");
-const inputCardLink = document.querySelector("#card-link");
+const inputTitle = document.querySelector("#inputTitle");
+const inputLink = document.querySelector("#inputLink");
+
+const saveNewPlaceBttn = document.querySelector("#savePlace");
+
+function validateInputsB() {
+  const isTitleFilled =
+    inputTitle.value.trim().length >= 2 && inputTitle.value.trim().length <= 30;
+
+  // Usar la validación nativa del navegador
+  const isLinkValid = inputLink.validity.valid;
+
+  if (isTitleFilled && isLinkValid) {
+    savePlace.classList.remove("popup__form-submit-disable");
+    savePlace.disabled = false;
+  } else {
+    savePlace.classList.add("popup__form-submit-disable");
+    savePlace.disabled = true;
+  }
+}
+
+validateInputsB();
+
+inputTitle.addEventListener("input", validateInputsB);
+inputLink.addEventListener("input", validateInputsB);
 
 // Abrir formulario
 openNewCardPopupBttn.addEventListener("click", () => {
@@ -166,13 +194,17 @@ closeNewCardPopupBttn.addEventListener("click", () => {
 newCardForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
 
-  const title = inputCardTitle.value;
-  const link = inputCardLink.value;
+  const title = inputTitle.value;
+  let link = inputLink.value.trim();
+  if (link && !/^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(link)) {
+    link = `https://${link}`;
+  }
 
-  createCard(title, link); // Reusa tu función
+  createCard(title, link);
 
   newCardPopup.classList.remove("popup__show");
   newCardForm.reset();
+  validateInputsB();
 });
 
 const imagePopup = document.querySelector(".popup-image");
@@ -185,4 +217,63 @@ popupImageCloseButton.addEventListener("click", () => {
   imagePopup.classList.remove("popup__show");
   imagePopupContent.src = "";
   imagePopupContent.alt = "";
+});
+
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(
+    formElement.querySelectorAll(".popup__form-input")
+  );
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function () {
+      //checkInputValidity(formElement, inputElement);
+      console.log("probando");
+      showInputError(formElement, inputElement, inputElement.validationMessage);
+    });
+  });
+};
+
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(".popup__form"));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
+
+    setEventListeners(formElement);
+  });
+};
+
+enableValidation();
+
+const showInputError = (formElement, inputElement, errorMessage) => {
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+  inputElement.classList.add("form__input_type_error");
+  errorElement.textContent = errorMessage;
+};
+
+// Selecciona todos los popups
+const popups = document.querySelectorAll(".popup");
+
+// Función para cerrar cualquier popup
+function closeModal(popup) {
+  popup.classList.remove("popup__show");
+}
+
+// Cierre por clic en overlay
+popups.forEach((popup) => {
+  popup.addEventListener("click", (evt) => {
+    if (evt.target === popup) {
+      closeModal(popup);
+    }
+  });
+});
+
+// Cierre por Escape
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    const popupAbierto = document.querySelector(".popup.popup__show");
+    if (popupAbierto) {
+      closeModal(popupAbierto);
+    }
+  }
 });
