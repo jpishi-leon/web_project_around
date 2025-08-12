@@ -15,7 +15,7 @@
     />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="stylesheet" href="./vendor/fonts.cs" />
+    <link rel="stylesheet" href="./vendor/fonts.css" />
     <title>Around the USA</title>
   </head>
   <body>
@@ -28,6 +28,7 @@
         />
         <hr class="header__line" />
       </header>
+
       <main class="main">
         <section class="profile">
           <div class="profile__content">
@@ -53,6 +54,7 @@
                 />
               </button>
             </div>
+
             <button
               type="button"
               class="profile__add-button"
@@ -66,14 +68,19 @@
             </button>
           </div>
         </section>
+
+        <!-- Contenedor donde se inyectan las tarjetas -->
         <section class="elements"></section>
+
+        <!-- Popup Editar Perfil -->
         <section class="popup popup-edit">
           <div class="popup__container">
             <h3 class="popup__editar">Editar perfil</h3>
-            <button class="popup__container-bttn-close">
+            <button class="popup__container-bttn-close" type="button">
               <img
                 class="popup__container-bttn-image"
                 src="./images/Close Icon.png"
+                alt="Cerrar"
               />
             </button>
             <form class="popup__form" id="contactForm">
@@ -92,6 +99,7 @@
                   class="form__input-error name-input-error"
                   id="InputName-error"
                 ></span>
+
                 <input
                   type="text"
                   minlength="2"
@@ -106,6 +114,7 @@
                   class="form__input-error about-input-error"
                   id="InputAbout-error"
                 ></span>
+
                 <button type="submit" id="submit" class="popup__form-submit">
                   Guardar
                 </button>
@@ -113,15 +122,19 @@
             </form>
           </div>
         </section>
+
+        <!-- Popup Nueva Tarjeta -->
         <section class="popup popup-new">
           <div class="popup__container">
             <button class="popup__container-bttn-close" type="button">
               <img
                 class="popup__container-bttn-close-img"
                 src="./images/Close Icon.png"
+                alt="Cerrar"
               />
             </button>
             <h2 class="popup__title">Nuevo lugar</h2>
+
             <form class="popup__form popup__form-new" name="newCardForm">
               <input
                 id="inputTitle"
@@ -136,6 +149,7 @@
                 class="form__input-error place-input-error"
                 id="inputTitle-error"
               ></span>
+
               <input
                 id="inputLink"
                 type="url"
@@ -147,6 +161,7 @@
                 class="form__input-error place-input-error"
                 id="inputLink-error"
               ></span>
+
               <button
                 type="submit"
                 id="savePlace"
@@ -159,14 +174,17 @@
           </div>
         </section>
       </main>
+
       <footer class="footer">
         <p class="footer__copyright">© 2025. Jun Andrade Sashida</p>
       </footer>
     </div>
-    <template class="template-card">
+
+    <!-- Template para tarjetas -->
+    <template class="template-card" id="card-template">
       <div class="elements__element">
         <div class="elements__image-wrapper">
-          <img class="elements__image" src="" />
+          <img class="elements__image" src="" alt="" />
           <img
             class="elements__trash"
             src="./images/Trash.svg"
@@ -175,10 +193,12 @@
         </div>
         <div class="elements__info">
           <p class="elements__info-name"></p>
-          <img class="elements__info-love" src="./images/Love.svg" />
+          <img class="elements__info-love" src="./images/Love.svg" alt="Like" />
         </div>
       </div>
     </template>
+
+    <!-- Popup de imagen -->
     <section class="popup popup-image">
       <div class="popup__container popup__container-image">
         <button class="popup__container-bttn-close" type="button">
@@ -191,6 +211,8 @@
         <img class="popup__image-content" src="" alt="Vista ampliada" />
       </div>
     </section>
-    <script src="./scripts/index.js"></script>
+
+    <!-- Carga correcta del módulo JS -->
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
