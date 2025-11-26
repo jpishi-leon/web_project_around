@@ -1,9 +1,9 @@
 export class Card {
-  constructor(data, templateSelector, handleImageClick) {
+  constructor(data, templateSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
-    this._handleImageClick = handleImageClick; // Función para abrir modal de imagen
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -13,34 +13,42 @@ export class Card {
     return template.cloneNode(true);
   }
 
+  _toggleLike(likeButton) {
+    this._isLiked = !this._isLiked;
+    likeButton.src = this._isLiked
+      ? "./images/Love-full.svg"
+      : "./images/Love.svg";
+  }
+
   _setEventListeners() {
     const likeButton = this._element.querySelector(".elements__info-love");
     const deleteButton = this._element.querySelector(".elements__trash");
     const image = this._element.querySelector(".elements__image");
 
-    let isLiked = false;
     likeButton.addEventListener("click", () => {
-      isLiked = !isLiked;
-      likeButton.src = isLiked ? "./images/Love-full.svg" : "./images/Love.svg";
+      this._toggleLike(likeButton);
     });
 
     likeButton.addEventListener("mouseenter", () => {
-      if (!isLiked) likeButton.src = "./images/Love-hover.svg";
+      if (!this._isLiked) likeButton.src = "./images/Love-hover.svg";
     });
 
     likeButton.addEventListener("mouseleave", () => {
-      likeButton.src = isLiked ? "./images/Love-full.svg" : "./images/Love.svg";
+      likeButton.src = this._isLiked
+        ? "./images/Love-full.svg"
+        : "./images/Love.svg";
     });
 
     deleteButton.addEventListener("click", () => this._element.remove());
 
     image.addEventListener("click", () =>
-      this._handleImageClick(this._link, this._name)
+      this._handleCardClick({ name: this._name, link: this._link })
     );
   }
 
   generateCard() {
     this._element = this._getTemplate();
+    this._isLiked = false;
 
     const title = this._element.querySelector(".elements__info-name");
     const image = this._element.querySelector(".elements__image");

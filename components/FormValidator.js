@@ -13,25 +13,28 @@ export class FormValidator {
     );
   }
 
-  // Método privado para mostrar error
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
     inputElement.classList.add(this._inputErrorClass);
-    errorElement.textContent = errorMessage;
+    if (errorElement) {
+      errorElement.textContent = errorMessage;
+      errorElement.classList.add("form__input-error_active");
+    }
   }
 
-  // Método privado para ocultar error
   _hideInputError(inputElement) {
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
     inputElement.classList.remove(this._inputErrorClass);
-    errorElement.textContent = "";
+    if (errorElement) {
+      errorElement.textContent = "";
+      errorElement.classList.remove("form__input-error_active");
+    }
   }
 
-  // Método privado para verificar validez usando HTML5
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, inputElement.validationMessage);
@@ -40,12 +43,10 @@ export class FormValidator {
     }
   }
 
-  // Método privado para verificar si hay inputs inválidos
   _hasInvalidInput() {
     return this._inputList.some((inputElement) => !inputElement.validity.valid);
   }
 
-  // Método privado para alternar estado del botón
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._inactiveButtonClass);
@@ -56,7 +57,6 @@ export class FormValidator {
     }
   }
 
-  // Método privado para agregar listeners
   _setEventListeners() {
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
@@ -67,13 +67,10 @@ export class FormValidator {
     this._toggleButtonState();
   }
 
-  // Método público para habilitar validación
   enableValidation() {
-    this._formElement.addEventListener("submit", (evt) => evt.preventDefault());
     this._setEventListeners();
   }
 
-  // Método público para resetear validación (oculta errores y actualiza botón)
   resetValidation() {
     this._inputList.forEach((inputElement) =>
       this._hideInputError(inputElement)

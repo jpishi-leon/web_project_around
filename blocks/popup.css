@@ -13,7 +13,7 @@
   transition: opacity 0.3s ease;
 }
 
-.popup__show {
+.popup_opened {
   opacity: 1;
   pointer-events: auto;
 }
@@ -229,4 +229,15 @@
 
 .popup__form-input:invalid {
   border-bottom: 1px solid red;
+}
+
+@media (max-width: 600px) {
+  .popup__container {
+    margin: 0 16px;
+  }
+
+  .popup__container-bttn-close {
+    top: 8px;
+    right: 8px;
+  }
 }
