@@ -51,18 +51,33 @@
   font-family: "Inter";
   font-weight: 900;
   font-size: 24px;
-  margin: 0 0 54px;
+  margin: 0 0 40px;
+  width: 100%;
+  max-width: 358px;
+  align-self: center;
+}
+
+.popup__title {
+  font-family: "Inter";
+  font-weight: 900;
+  font-size: 24px;
+  margin: 0 0 40px;
+  width: 100%;
+  max-width: 358px;
+  align-self: center;
 }
 
 .popup__form {
   display: flex;
   flex-direction: column;
-  width: 358px;
+  width: 100%;
+  max-width: 358px;
   align-self: center;
 }
 
 .popup__form-fieldset {
   max-width: 358px;
+  width: 100%;
   border: 0;
   margin: auto;
   padding: 0;
@@ -239,5 +254,30 @@
   .popup__container-bttn-close {
     top: 8px;
     right: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup__container {
+    width: calc(100% - 40px);
+    padding: 24px 20px;
+  }
+
+  .popup__form {
+    max-width: none;
+  }
+
+  .popup__form-fieldset {
+    max-width: none;
+  }
+
+  .popup__editar {
+    font-size: 18px;
+    margin-bottom: 32px;
+  }
+
+  .popup__title {
+    font-size: 18px;
+    margin-bottom: 32px;
   }
 }
